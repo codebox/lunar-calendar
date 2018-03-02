@@ -3,9 +3,10 @@ import datetime
 import ephem
 import math
 
-MOON_DIAMETER = 40
-LIGHT_COLOUR  = '#f7f7c0'
-SHADOW_COLOUR = '#274982'
+MOON_DIAMETER = 36
+LIGHT_COLOUR  = '#f4f4f4'
+SHADOW_COLOUR = '#17376d'
+BACKGROUND_COLOUR = '#142d58'
 
 class Page:
     def __init__(self):
@@ -78,8 +79,12 @@ class Page:
 
         return '<svg width="{0}" height="{0}">{1}</svg>'.format(MOON_DIAMETER, self._make_path(lunation))
 
+
     def populate(self, year):
         self._replace_in_template('YEAR', str(year))
+        self._replace_in_template('SHADOW_COLOUR', SHADOW_COLOUR)
+        self._replace_in_template('LIGHT_COLOUR', LIGHT_COLOUR)
+        self._replace_in_template('BACKGROUND_COLOUR', BACKGROUND_COLOUR)
         for month in range(1,13):
             _, days = calendar.monthrange(year, month)
             for day in range(1, days+1):
