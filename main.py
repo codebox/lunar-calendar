@@ -4,6 +4,28 @@ import ephem # see http://rhodesmill.org/pyephem/
 import math
 import sys
 
+'''
+Lunar Calendar Generator
+
+This utility will generate an HTML Lunar Calendar for the year that you specify.
+To run the utility, pass the year as a command-line argument - for example:
+
+    python main.py 2018
+
+When running the utility, the file 'template.html' must be present in the current
+working directory.
+
+Latest version of source code available from:
+    https://github.com/codebox/lunar-calendar
+
+Project home page:
+   https://codebox.net/pages/lunar-calendar
+
+This source code is released under the MIT Open Source License
+
+© 2018 Rob Dawson
+'''
+
 class Calendar:
     def __init__(self):
         self.html = open('template.html').read()
@@ -70,7 +92,7 @@ class Calendar:
 
         lunation = (date - preceding_new_moon) / (following_new_moon - preceding_new_moon)
 
-        VIEW_BOX_SIZE = 1
+        VIEW_BOX_SIZE = 100
         return '<svg width="100%" viewBox="0 0 {0} {0}">{1}</svg>'.format(VIEW_BOX_SIZE, self._make_path(lunation, VIEW_BOX_SIZE))
 
     def _get_moon_dates(self, year, next_fn):
