@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>☾ Lunar Calendar <!-- YEAR --></title>
+    <title>Lunar Calendar <!-- YEAR --></title>
     <style>
         body{
             background-color: #142d58;
@@ -10,17 +10,22 @@
         }
         h1{
             text-align: center;
-            padding-top: 10px;
+            padding-top: 20px;
             font-family: 'Open Sans', sans-serif;
+            font-weight: normal;
         }
         footer{
-            padding-top: 30px;
+            padding-top: 20px;
             text-align: center;
             font-size: 10px;
             font-family: 'Open Sans', sans-serif;
         }
         a, a:visited {
             color: #f4f4f4;
+            text-decoration: none;
+        }
+        a:hover{
+            text-decoration: underline;
         }
         .light{
             fill: #f4f4f4;
@@ -28,21 +33,47 @@
         .shadow{
             fill: #17376d;
         }
-        #phases{
+        table {
             margin: 0 auto;
             width: 95%;
         }
-        #phases td{
+        td{
             padding: 2px;
             min-width: 20px;
         }
-        #phases .dayNumber{
+        .dayNumber{
             text-align: center;
             padding-bottom: 10px;
         }
-        #phases .monthName{
+        .monthName{
             text-align: right;
             padding-right: 20px;
+        }
+        h2 {
+            margin: 10px 0 0 10px;
+            display: inline;
+            font-weight: bold;
+        }
+        h2, .moonDates {
+            font-size: 12px;
+        }
+        .moonDates {
+            vertical-align: middle;
+            padding: 0;
+            text-align: center;
+        }
+        .moonDates span {
+            margin-left: 10px;
+        }
+        .moonDates span.blueMoon {
+            text-decoration: underline;
+        }
+        .moonDates span.blackMoon {
+            text-decoration: underline;
+            text-decoration-style: dotted;
+        }
+        .spacer td{
+            height: 20px;
         }
     </style>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -50,7 +81,7 @@
 </head>
 <body>
     <h1>Lunar Calendar <!-- YEAR --></h1>
-    <table id="phases">
+    <table>
         <tr><td></td><td class="dayNumber">1</td> <td class="dayNumber">2</td> <td class="dayNumber">3</td> <td class="dayNumber">4</td> <td class="dayNumber">5</td> <td class="dayNumber">6</td> <td class="dayNumber">7</td> <td class="dayNumber">8</td> <td class="dayNumber">9</td> <td class="dayNumber">10</td> <td class="dayNumber">11</td> <td class="dayNumber">12</td> <td class="dayNumber">13</td> <td class="dayNumber">14</td> <td class="dayNumber">15</td> <td class="dayNumber">16</td> <td class="dayNumber">17</td> <td class="dayNumber">18</td> <td class="dayNumber">19</td> <td class="dayNumber">20</td> <td class="dayNumber">21</td> <td class="dayNumber">22</td> <td class="dayNumber">23</td> <td class="dayNumber">24</td> <td class="dayNumber">25</td> <td class="dayNumber">26</td> <td class="dayNumber">27</td> <td class="dayNumber">28</td> <td class="dayNumber">29</td> <td class="dayNumber">30</td> <td class="dayNumber">31</td></tr>
         <tr><td class="monthName">Jan</td></td><td><!-- MOON_01_01 --></td><td><!-- MOON_01_02 --></td><td><!-- MOON_01_03 --></td><td><!-- MOON_01_04 --></td><td><!-- MOON_01_05 --></td><td><!-- MOON_01_06 --></td><td><!-- MOON_01_07 --></td><td><!-- MOON_01_08 --></td><td><!-- MOON_01_09 --></td><td><!-- MOON_01_10 --></td><td><!-- MOON_01_11 --></td><td><!-- MOON_01_12 --></td><td><!-- MOON_01_13 --></td><td><!-- MOON_01_14 --></td><td><!-- MOON_01_15 --></td><td><!-- MOON_01_16 --></td><td><!-- MOON_01_17 --></td><td><!-- MOON_01_18 --></td><td><!-- MOON_01_19 --></td><td><!-- MOON_01_20 --></td><td><!-- MOON_01_21 --></td><td><!-- MOON_01_22 --></td><td><!-- MOON_01_23 --></td><td><!-- MOON_01_24 --></td><td><!-- MOON_01_25 --></td><td><!-- MOON_01_26 --></td><td><!-- MOON_01_27 --></td><td><!-- MOON_01_28 --></td><td><!-- MOON_01_29 --></td><td><!-- MOON_01_30 --></td><td><!-- MOON_01_31 --></td></tr>
         <tr><td class="monthName">Feb</td></td><td><!-- MOON_02_01 --></td><td><!-- MOON_02_02 --></td><td><!-- MOON_02_03 --></td><td><!-- MOON_02_04 --></td><td><!-- MOON_02_05 --></td><td><!-- MOON_02_06 --></td><td><!-- MOON_02_07 --></td><td><!-- MOON_02_08 --></td><td><!-- MOON_02_09 --></td><td><!-- MOON_02_10 --></td><td><!-- MOON_02_11 --></td><td><!-- MOON_02_12 --></td><td><!-- MOON_02_13 --></td><td><!-- MOON_02_14 --></td><td><!-- MOON_02_15 --></td><td><!-- MOON_02_16 --></td><td><!-- MOON_02_17 --></td><td><!-- MOON_02_18 --></td><td><!-- MOON_02_19 --></td><td><!-- MOON_02_20 --></td><td><!-- MOON_02_21 --></td><td><!-- MOON_02_22 --></td><td><!-- MOON_02_23 --></td><td><!-- MOON_02_24 --></td><td><!-- MOON_02_25 --></td><td><!-- MOON_02_26 --></td><td><!-- MOON_02_27 --></td><td><!-- MOON_02_28 --></td><td><!-- MOON_02_29 --></td><td><!-- MOON_02_30 --></td><td><!-- MOON_02_31 --></td></tr>
@@ -64,6 +95,17 @@
         <tr><td class="monthName">Oct</td></td><td><!-- MOON_10_01 --></td><td><!-- MOON_10_02 --></td><td><!-- MOON_10_03 --></td><td><!-- MOON_10_04 --></td><td><!-- MOON_10_05 --></td><td><!-- MOON_10_06 --></td><td><!-- MOON_10_07 --></td><td><!-- MOON_10_08 --></td><td><!-- MOON_10_09 --></td><td><!-- MOON_10_10 --></td><td><!-- MOON_10_11 --></td><td><!-- MOON_10_12 --></td><td><!-- MOON_10_13 --></td><td><!-- MOON_10_14 --></td><td><!-- MOON_10_15 --></td><td><!-- MOON_10_16 --></td><td><!-- MOON_10_17 --></td><td><!-- MOON_10_18 --></td><td><!-- MOON_10_19 --></td><td><!-- MOON_10_20 --></td><td><!-- MOON_10_21 --></td><td><!-- MOON_10_22 --></td><td><!-- MOON_10_23 --></td><td><!-- MOON_10_24 --></td><td><!-- MOON_10_25 --></td><td><!-- MOON_10_26 --></td><td><!-- MOON_10_27 --></td><td><!-- MOON_10_28 --></td><td><!-- MOON_10_29 --></td><td><!-- MOON_10_30 --></td><td><!-- MOON_10_31 --></td></tr>
         <tr><td class="monthName">Nov</td></td><td><!-- MOON_11_01 --></td><td><!-- MOON_11_02 --></td><td><!-- MOON_11_03 --></td><td><!-- MOON_11_04 --></td><td><!-- MOON_11_05 --></td><td><!-- MOON_11_06 --></td><td><!-- MOON_11_07 --></td><td><!-- MOON_11_08 --></td><td><!-- MOON_11_09 --></td><td><!-- MOON_11_10 --></td><td><!-- MOON_11_11 --></td><td><!-- MOON_11_12 --></td><td><!-- MOON_11_13 --></td><td><!-- MOON_11_14 --></td><td><!-- MOON_11_15 --></td><td><!-- MOON_11_16 --></td><td><!-- MOON_11_17 --></td><td><!-- MOON_11_18 --></td><td><!-- MOON_11_19 --></td><td><!-- MOON_11_20 --></td><td><!-- MOON_11_21 --></td><td><!-- MOON_11_22 --></td><td><!-- MOON_11_23 --></td><td><!-- MOON_11_24 --></td><td><!-- MOON_11_25 --></td><td><!-- MOON_11_26 --></td><td><!-- MOON_11_27 --></td><td><!-- MOON_11_28 --></td><td><!-- MOON_11_29 --></td><td><!-- MOON_11_30 --></td><td><!-- MOON_11_31 --></td></tr>
         <tr><td class="monthName">Dec</td></td><td><!-- MOON_12_01 --></td><td><!-- MOON_12_02 --></td><td><!-- MOON_12_03 --></td><td><!-- MOON_12_04 --></td><td><!-- MOON_12_05 --></td><td><!-- MOON_12_06 --></td><td><!-- MOON_12_07 --></td><td><!-- MOON_12_08 --></td><td><!-- MOON_12_09 --></td><td><!-- MOON_12_10 --></td><td><!-- MOON_12_11 --></td><td><!-- MOON_12_12 --></td><td><!-- MOON_12_13 --></td><td><!-- MOON_12_14 --></td><td><!-- MOON_12_15 --></td><td><!-- MOON_12_16 --></td><td><!-- MOON_12_17 --></td><td><!-- MOON_12_18 --></td><td><!-- MOON_12_19 --></td><td><!-- MOON_12_20 --></td><td><!-- MOON_12_21 --></td><td><!-- MOON_12_22 --></td><td><!-- MOON_12_23 --></td><td><!-- MOON_12_24 --></td><td><!-- MOON_12_25 --></td><td><!-- MOON_12_26 --></td><td><!-- MOON_12_27 --></td><td><!-- MOON_12_28 --></td><td><!-- MOON_12_29 --></td><td><!-- MOON_12_30 --></td><td><!-- MOON_12_31 --></td></tr>
+        <tr><td class="spacer" colspan="32">&nbsp;</td></tr>
+        <tr>
+            <td class="moonDates" colspan="32">
+                &#x002B24;<h2>Full Moon:</h2><!-- FULL_MOONS -->
+            </td>
+        </tr>
+        <tr>
+            <td class="moonDates" colspan="32">
+                &#x0025EF;<h2>New Moon:</h2><!-- NEW_MOONS -->
+            </td>
+        </tr>
     </table>
 
     <table></table>
