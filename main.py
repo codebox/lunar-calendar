@@ -4,9 +4,8 @@ import ephem
 import math
 
 MOON_DIAMETER = 36
-LIGHT_COLOUR  = '#f4f4f4'
-SHADOW_COLOUR = '#17376d'
-BACKGROUND_COLOUR = '#142d58'
+LIGHT_CLASS  = 'light'
+SHADOW_CLASS = 'shadow'
 
 class Page:
     def __init__(self):
@@ -55,17 +54,17 @@ class Page:
 
     def _make_path(self, lunation):
         terminator_radius, right, illum = self._calc_terminator_radius(lunation, MOON_DIAMETER/2)
-        colour1 = LIGHT_COLOUR if illum else SHADOW_COLOUR
-        colour2 = SHADOW_COLOUR if illum else LIGHT_COLOUR
+        colour1 = LIGHT_CLASS if illum else SHADOW_CLASS
+        colour2 = SHADOW_CLASS if illum else LIGHT_CLASS
 
         move_to_top = 'M{0},0'.format(MOON_DIAMETER/2)
         terminator_arc = 'A {0} {0} 0 0 {1} {2} {3}'.format(terminator_radius, 1 if right else 0, MOON_DIAMETER/2, MOON_DIAMETER)
         left_side_arc = 'A {0} {0} 0 0 1 {0} 0'.format(MOON_DIAMETER/2)
         right_side_arc = 'A {0} {0} 0 0 0 {0} 0'.format(MOON_DIAMETER/2)
 
-        path1 = '<path d="{0} {1} {2}" fill="{3}"/>'.format(move_to_top, terminator_arc, left_side_arc, colour1)
+        path1 = '<path d="{0} {1} {2}" class="{3}"/>'.format(move_to_top, terminator_arc, left_side_arc, colour1)
 
-        path2 = '<path d="{0} {1} {2}" fill="{3}"/>'.format(move_to_top, terminator_arc, right_side_arc, colour2)
+        path2 = '<path d="{0} {1} {2}" class="{3}"/>'.format(move_to_top, terminator_arc, right_side_arc, colour2)
 
         return  path1 + path2
 
@@ -77,14 +76,11 @@ class Page:
 
         lunation = (date-pnm)/(nnm-pnm)
 
-        return '<svg width="{0}" height="{0}">{1}</svg>'.format(MOON_DIAMETER, self._make_path(lunation))
+        return '<svg width="100%" viewBox="0 0 {0} {0}">{1}</svg>'.format(MOON_DIAMETER, self._make_path(lunation))
 
 
     def populate(self, year):
         self._replace_in_template('YEAR', str(year))
-        self._replace_in_template('SHADOW_COLOUR', SHADOW_COLOUR)
-        self._replace_in_template('LIGHT_COLOUR', LIGHT_COLOUR)
-        self._replace_in_template('BACKGROUND_COLOUR', BACKGROUND_COLOUR)
         for month in range(1,13):
             _, days = calendar.monthrange(year, month)
             for day in range(1, days+1):
