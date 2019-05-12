@@ -7,6 +7,8 @@ To run the utility, pass the year as a command-line argument - for example:
 python main.py 2018
 ```
 
+The code uses the PyEphem library, which [you will need to install](https://rhodesmill.org/pyephem/#installation) before running it.
+
 When running the utility, the file `template.html` must be present in the current working directory.
 
 An example calendar is shown below:
